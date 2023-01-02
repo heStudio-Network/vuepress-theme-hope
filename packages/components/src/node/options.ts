@@ -1,10 +1,15 @@
 import type { LocaleConfig } from "@vuepress/core";
-import type { BackToTopLocaleData, NoticeOptions } from "../shared/index.js";
+import type {
+  BackToTopLocaleData,
+  CatalogLocaleData,
+  NoticeOptions,
+} from "../shared/index.js";
 
 export type AvailableComponent =
   | "AudioPlayer"
   | "Badge"
   | "BiliBili"
+  | "Catalog"
   | "CodePen"
   | "FontIcon"
   | "PDF"
@@ -108,5 +113,12 @@ export interface ComponentOptions {
      * 返回顶部按钮国际化配置
      */
     backToTop?: LocaleConfig<BackToTopLocaleData>;
+
+    /**
+     * Catalog Locales config
+     *
+     * 目录组件国际化配置
+     */
+    catalog?: LocaleConfig<CatalogLocaleData>;
   };
 }

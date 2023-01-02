@@ -140,14 +140,14 @@ tag:
 
 是否启用图片 Figure 支持。
 
-### imageLazyload
+### imgLazyload
 
 - 类型: `boolean`
 - 默认值: `false`
 
 是否使用原生方式懒加载页面图片。
 
-### imageMark
+### imgMark
 
 - 类型: `ImageMarkOptions | boolean`
 - 默认值: `false`
@@ -163,7 +163,7 @@ interface ImageMarkOptions {
 }
 ```
 
-### imageSize
+### imgSize
 
 - 类型: `boolean`
 - 默认值: `false`
@@ -200,7 +200,7 @@ interface TaskListOptions {
 - 类型: `KatexOptions | boolean`
 - 默认值: `false`
 
-是否通过 $\KaTeX$ 启用 $\TeX$ 语法支持。你可以传入一个对象作为 $\KaTeX$ 的配置选项。
+是否通过 KaTeX 启用 $\TeX$ 语法支持。你可以传入一个对象作为 KaTeX 的配置选项。
 
 特别低，你可以通过 `katex.mhchem: true` 来启用 mhchem 扩展。
 
@@ -612,7 +612,7 @@ CodePen 编辑器显示情况，第一位代表 HTML ，第二位代表 JS，第
 ### delay
 
 - 类型: `number`
-- 默认值: `500`
+- 默认值: `800`
 
 操作页面 DOM 的延时，单位 ms。
 

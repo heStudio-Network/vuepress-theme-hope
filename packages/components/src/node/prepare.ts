@@ -7,6 +7,7 @@ const availableComponents: AvailableComponent[] = [
   "AudioPlayer",
   "Badge",
   "BiliBili",
+  "Catalog",
   "CodePen",
   "FontIcon",
   "PDF",
@@ -29,7 +30,7 @@ const getIconLink = (
   if (iconLink === "iconfont")
     return {
       type: "style",
-      content: `@import url("//at.alicdn.com/t/font_2410206_a0xb9hku9iu.css");`,
+      content: `@import url("//at.alicdn.com/t/c/font_2410206_s76eeqysx0t.css");`,
     };
 
   const actualLink = iconLink.match(/^(?:https?:)?\/\//g)
@@ -75,7 +76,7 @@ export const prepareConfigFile = (
 import ${item} from "${CLIENT_FOLDER}components/${item}.js";
 `;
       enhance += `\
-app.component("${item}", ${item});
+if(!hasGlobalComponent("${item}")) app.component("${item}", ${item});
 `;
     }
 
@@ -136,6 +137,7 @@ import Notice from "${CLIENT_FOLDER}components/Notice.js";
     `components/config.js`,
     `\
 import { defineClientConfig } from "@vuepress/client";
+import { hasGlobalComponent } from "${CLIENT_FOLDER}shared.js";
 ${
   shouldImportH
     ? `\

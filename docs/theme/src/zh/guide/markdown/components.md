@@ -15,6 +15,7 @@ tag:
 - AudioPlayer
 - Badge
 - BiliBili
+- Catalog
 - CodePen
 - FontIcon
 - PDF
@@ -46,6 +47,7 @@ export default defineUserConfig({
           "AudioPlayer",
           "Badge",
           "BiliBili",
+          "Catalog",
           "CodePen",
           "PDF",
           "StackBlitz",
@@ -73,6 +75,7 @@ export default {
           "AudioPlayer",
           "Badge",
           "BiliBili",
+          "Catalog",
           "CodePen",
           "PDF",
           "StackBlitz",
@@ -91,23 +94,23 @@ export default {
 
 一个音频播放器:
 
-<AudioPlayer src="/assets/sample.mp3" />
+<AudioPlayer src="/assets/assets/sample.mp3" />
 
 ```md
-<AudioPlayer src="/assets/sample.mp3" />
+<AudioPlayer src="/assets/assets/sample.mp3" />
 ```
 
 一个拥有标题和封面的音频播放器:
 
 <AudioPlayer
-  src="/assets/sample.mp3"
+  src="/assets/assets/sample.mp3"
   title="A Sample Audio"
   poster="/logo.svg"
 />
 
 ```md
 <AudioPlayer
-  src="/assets/sample.mp3"
+  src="/assets/assets/sample.mp3"
   title="A Sample Audio"
   poster="/logo.svg"
 />
@@ -156,6 +159,26 @@ export default {
 ```
 
 有关可用属性，请参阅 [BiliBili][bilibili] 页面。
+
+## Catalog
+
+一个展示目录的组件。
+
+主页目录:
+
+<!-- markdownlint-disable MD033 -->
+
+<div class="catalog-display-container">
+  <Catalog base='/zh/' />
+</div>
+
+<!-- markdownlint-enable MD033 -->
+
+```md
+<Catalog base='/zh/' />
+```
+
+有关可用属性，请参阅 [Catalog][catalog] 页面。
 
 ## CodePen
 
@@ -225,18 +248,18 @@ PDF 浏览器组件。
 
 默认 PDF 阅读器:
 
-<PDF url="/sample.pdf" />
+<PDF url="/assets/sample.pdf" />
 
 ```md
-<PDF url="/sample.pdf" />
+<PDF url="/assets/sample.pdf" />
 ```
 
 禁用工具栏且初始页面为第二页的阅读器:
 
-<PDF url="/sample.pdf" page="2" no-toolbar />
+<PDF url="/assets/sample.pdf" page="2" no-toolbar />
 
 ```md
-<PDF url="/sample.pdf" page="2" no-toolbar />
+<PDF url="/assets/sample.pdf" page="2" no-toolbar />
 ```
 
 有关可用属性，请参阅 [PDF][pdf] 页面。
@@ -279,7 +302,7 @@ PDF 浏览器组件。
 
 <VideoPlayer
   src="https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f1/Sintel_movie_4K.webm/Sintel_movie_4K.webm.1080p.vp9.webm"
-  poster="/poster.svg"
+  poster="/assets/poster.svg"
   :tracks="[
     {
       default: true,
@@ -300,7 +323,7 @@ PDF 浏览器组件。
 ```md
 <VideoPlayer
   src="https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f1/Sintel_movie_4K.webm/Sintel_movie_4K.webm.1080p.vp9.webm"
-  poster="/poster.svg"
+  poster="/assets/poster.svg"
   :tracks="[
     {
       default: true,
@@ -354,6 +377,7 @@ PDF 浏览器组件。
 [audioplayer]: https://vuepress-theme-hope.github.io/v2/components/zh/guide/audioplayer.html
 [badge]: https://vuepress-theme-hope.github.io/v2/components/zh/guide/badge.html
 [bilibili]: https://vuepress-theme-hope.github.io/v2/components/zh/guide/bilibili.html
+[catalog]: https://vuepress-theme-hope.github.io/v2/components/zh/guide/catalog.html
 [codepen]: https://vuepress-theme-hope.github.io/v2/components/zh/guide/codepen.html
 [fonticon]: https://vuepress-theme-hope.github.io/v2/components/zh/guide/fonticon.html
 [pdf]: https://vuepress-theme-hope.github.io/v2/components/zh/guide/pdf.html

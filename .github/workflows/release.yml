@@ -30,13 +30,9 @@ jobs:
           NODE_OPTIONS: --max_old_space_size=8192
         run: pnpm run build
 
-      - name: Set Token
-        run: |-
-          echo "registry=https://registry.npmjs.org/
-          //registry.npmjs.org/:always-auth=true
-          //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}"
-
       - name: Publish packages
+        env:
+          npm_config_//registry.npmjs.org/:_authToken: ${{ secrets.NPM_TOKEN }}
         run: pnpm publish -r --tag next --no-git-checks
 
       - name: Sync npmmirror
@@ -77,6 +73,7 @@ jobs:
 
       - name: Combine output
         run: |
+          pnpm cpx "docs/auto-catalog/dist/**" dist/auto-catalog
           pnpm cpx "docs/blog2/dist/**" dist/blog
           pnpm cpx "docs/comment2/dist/**" dist/comment
           pnpm cpx "docs/components/dist/**" dist/components
@@ -142,6 +139,7 @@ jobs:
 
       - name: Combine output
         run: |
+          pnpm cpx "docs/auto-catalog/dist/**" dist/auto-catalog
           pnpm cpx "docs/blog2/dist/**" dist/blog
           pnpm cpx "docs/comment2/dist/**" dist/comment
           pnpm cpx "docs/components/dist/**" dist/components
@@ -238,6 +236,7 @@ jobs:
       fail-fast: false
       matrix:
         plugin-name:
+          - auto-catalog
           - blog2
           - comment2
           - components

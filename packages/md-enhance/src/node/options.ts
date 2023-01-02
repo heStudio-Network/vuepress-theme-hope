@@ -1,16 +1,17 @@
 import type { LocaleConfig } from "@vuepress/core";
+import type { MermaidConfig } from "mermaid";
 import type {
   AttrsOptions,
   FigureOptions,
-  ImageMarkOptions,
+  ImgMarkOptions,
   IncludeOptions,
   KatexOptions,
   MarkdownEnhanceLocaleData,
-  MathJaxOptions,
+  MathjaxOptions,
   StylizeOptions,
   PlaygroundOptions,
   PresentationOptions,
-  TaskListOptions,
+  TasklistOptions,
   TSPresetPlaygroundOptions,
   VuePresetPlaygroundOptions,
 } from "./typings/index.js";
@@ -129,6 +130,15 @@ export interface MarkdownEnhanceOptions {
   sub?: boolean;
 
   /**
+   * Whether render figure with standalone imag
+   *
+   * 是否将单独的图片渲染为 figure
+   *
+   * @default false
+   */
+  figure?: FigureOptions | boolean;
+
+  /**
    * Whether to enable footnote format support
    *
    * 是否启用脚注格式支持。
@@ -144,16 +154,7 @@ export interface MarkdownEnhanceOptions {
    *
    * @default false
    */
-  imageLazyload?: boolean;
-
-  /**
-   * Whether render figure with standalone imag
-   *
-   * 是否将单独的图片渲染为 figure
-   *
-   * @default false
-   */
-  figure?: FigureOptions | boolean;
+  imgLazyload?: boolean;
 
   /**
    * Whether to enable gfm image id mark support
@@ -162,7 +163,7 @@ export interface MarkdownEnhanceOptions {
    *
    * @default false
    */
-  imageMark?: ImageMarkOptions | boolean;
+  imgMark?: ImgMarkOptions | boolean;
 
   /**
    * Whether to enable image size mark support
@@ -171,7 +172,7 @@ export interface MarkdownEnhanceOptions {
    *
    * @default false
    */
-  imageSize?: ImageMarkOptions | boolean;
+  imgSize?: boolean;
 
   /**
    * Whether to enable mark format support
@@ -189,7 +190,7 @@ export interface MarkdownEnhanceOptions {
    *
    * @default false
    */
-  tasklist?: TaskListOptions | boolean;
+  tasklist?: TasklistOptions | boolean;
 
   /**
    * Whether to enable include syntax support
@@ -224,7 +225,7 @@ export interface MarkdownEnhanceOptions {
    *
    * @default false
    */
-  mathjax?: MathJaxOptions | boolean;
+  mathjax?: MathjaxOptions | boolean;
 
   /**
    * Whether to enable chart support
@@ -260,7 +261,7 @@ export interface MarkdownEnhanceOptions {
    *
    * @default false
    */
-  mermaid?: boolean;
+  mermaid?: MermaidConfig | boolean;
 
   /**
    * Whether to enable code-demo support
@@ -320,7 +321,7 @@ export interface MarkdownEnhanceOptions {
    *
    * 如果你使用的主题有切换动画，建议配置此选项为 `切换动画时长 + 200`
    *
-   * @default 500
+   * @default 800
    */
   delay?: number;
 

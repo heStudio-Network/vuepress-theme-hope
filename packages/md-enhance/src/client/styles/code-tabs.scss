@@ -109,7 +109,9 @@
     }
 
     code {
-      white-space: pre-wrap !important;
+      @media print {
+        white-space: pre-wrap;
+      }
     }
   }
 }

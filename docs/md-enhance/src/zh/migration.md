@@ -5,7 +5,7 @@ icon: change
 
 ## 传统模式
 
-您可以在调用 `mdEnhancePlugin` 时传递第二个参数 `true` 以启用传统模式，插件将尝试以 V1 行为运行。
+你可以在调用 `mdEnhancePlugin` 时传递第二个参数 `true` 以启用传统模式，插件将尝试以 V1 行为运行。
 
 ## 新功能
 
@@ -17,7 +17,7 @@ icon: change
 
 - 图像标记支持
 
-  通过 `imageMark` 选项使用 `#light` 和 `#dark` 后缀标记图像以在日间模式或夜间模式下显示它们。
+  通过 `imgMark` 选项使用 `#light` 和 `#dark` 后缀标记图像以在日间模式或夜间模式下显示它们。
 
 - `v-pre` 支持
 

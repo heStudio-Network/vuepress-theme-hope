@@ -15,6 +15,7 @@ Available components:
 - AudioPlayer
 - Badge
 - BiliBili
+- Catalog
 - CodePen
 - FontIcon
 - PDF
@@ -46,6 +47,7 @@ export default defineUserConfig({
           "AudioPlayer",
           "Badge",
           "BiliBili",
+          "Catalog",
           "CodePen",
           "PDF",
           "StackBlitz",
@@ -73,6 +75,7 @@ export default {
           "AudioPlayer",
           "Badge",
           "BiliBili",
+          "Catalog",
           "CodePen",
           "PDF",
           "StackBlitz",
@@ -91,23 +94,23 @@ export default {
 
 An audio player:
 
-<AudioPlayer src="/sample.mp3" />
+<AudioPlayer src="/assets/sample.mp3" />
 
 ```md
-<AudioPlayer src="/sample.mp3" />
+<AudioPlayer src="/assets/sample.mp3" />
 ```
 
 An audio player with poster and title:
 
 <AudioPlayer
-  src="/sample.mp3"
+  src="/assets/sample.mp3"
   title="A Sample Audio"
   poster="/logo.svg"
 />
 
 ```md
 <AudioPlayer
-  src="/sample.mp3"
+  src="/assets/sample.mp3"
   title="A Sample Audio"
   poster="/logo.svg"
 />
@@ -156,6 +159,26 @@ A bilibili video with custom settings:
 ```
 
 See [BiliBili][bilibili] page for available props.
+
+## Catalog
+
+A component which display catalog.
+
+Home page catalog:
+
+<!-- markdownlint-disable MD033 -->
+
+<div class="catalog-display-container">
+  <Catalog base='/' />
+</div>
+
+<!-- markdownlint-enable MD033 -->
+
+```md
+<Catalog base='/' />
+```
+
+See [Catalog][catalog] page for available props.
 
 ## CodePen
 
@@ -224,18 +247,18 @@ PDF viewer component.
 
 Default PDF viewer:
 
-<PDF url="/sample.pdf" />
+<PDF url="/assets/sample.pdf" />
 
 ```md
-<PDF url="/sample.pdf" />
+<PDF url="/assets/sample.pdf" />
 ```
 
 PDF viewer starting with page 2 and without toolbar:
 
-<PDF url="/sample.pdf" page="2" no-toolbar />
+<PDF url="/assets/sample.pdf" page="2" no-toolbar />
 
 ```md
-<PDF url="/sample.pdf" page="2" no-toolbar />
+<PDF url="/assets/sample.pdf" page="2" no-toolbar />
 ```
 
 See [PDF][pdf] page for available props.
@@ -278,7 +301,7 @@ A video player with tracks and poster:
 
 <VideoPlayer
   src="https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f1/Sintel_movie_4K.webm/Sintel_movie_4K.webm.1080p.vp9.webm"
-  poster="/poster.svg"
+  poster="/assets/poster.svg"
   :tracks="[
     {
       default: true,
@@ -299,7 +322,7 @@ A video player with tracks and poster:
 ```md
 <VideoPlayer
   src="https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f1/Sintel_movie_4K.webm/Sintel_movie_4K.webm.1080p.vp9.webm"
-  poster="/poster.svg"
+  poster="/assets/poster.svg"
   :tracks="[
     {
       default: true,
@@ -353,6 +376,7 @@ See [YouTube][youtube] page for available props.
 [audioplayer]: https://vuepress-theme-hope.github.io/v2/components/guide/audioplayer.html
 [badge]: https://vuepress-theme-hope.github.io/v2/components/guide/badge.html
 [bilibili]: https://vuepress-theme-hope.github.io/v2/components/guide/bilibili.html
+[catalog]: https://vuepress-theme-hope.github.io/v2/components/guide/catalog.html
 [codepen]: https://vuepress-theme-hope.github.io/v2/components/guide/codepen.html
 [fonticon]: https://vuepress-theme-hope.github.io/v2/components/guide/fonticon.html
 [pdf]: https://vuepress-theme-hope.github.io/v2/components/guide/pdf.html

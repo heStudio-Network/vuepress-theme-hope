@@ -1,8 +1,12 @@
 import { useSassPalettePlugin } from "vuepress-plugin-sass-palette";
-import { getLocales, mergeViteConfig } from "vuepress-shared/node";
+import {
+  getBundlerName,
+  getLocales,
+  mergeViteConfig,
+} from "vuepress-shared/node";
 
 import { convertOptions } from "./convert/index.js";
-import { backToTopLocales } from "./locales.js";
+import { backToTopLocales, catalogLocales } from "./locales.js";
 import { prepareConfigFile } from "./prepare.js";
 import { getIconPrefix, logger } from "./utils.js";
 
@@ -34,6 +38,12 @@ export const componentsPlugin =
             default: backToTopLocales,
             config: options.locales?.backToTop,
           }),
+          CATALOG_LOCALES: getLocales({
+            app,
+            name: "catalog",
+            default: catalogLocales,
+            config: options.locales?.catalog,
+          }),
           ICON_PREFIX:
             typeof prefix === "string" ? prefix : getIconPrefix(assets),
           PDFJS_URL: options.componentOptions?.pdf?.pdfjs || null,
@@ -41,10 +51,11 @@ export const componentsPlugin =
       },
 
       extendsBundlerOptions: (config: unknown, app): void => {
-        const { bundler } = app.options;
-
-        if (bundler.name.endsWith("vite")) {
+        if (getBundlerName(app) === "vite") {
           const bundlerConfig = <ViteBundlerOptions>config;
+
+          const originalOnWarn =
+            bundlerConfig.viteOptions?.build?.rollupOptions?.onwarn;
 
           bundlerConfig.viteOptions = mergeViteConfig(
             bundlerConfig.viteOptions || {},
@@ -58,11 +69,14 @@ export const componentsPlugin =
                     if (
                       warning.message.includes(
                         'is imported from external module "@vueuse/core" but never used in '
+                      ) ||
+                      warning.message.includes(
+                        'is imported from external module "vuepress-shared/client" but never used in '
                       )
                     )
                       return;
 
-                    warn(warning);
+                    originalOnWarn?.(warning, warn);
                   },
                 },
               },
